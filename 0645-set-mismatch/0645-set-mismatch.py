@@ -1,19 +1,18 @@
 class Solution(object):
     def findErrorNums(self, nums):
-        nums.sort()
-        n = len(nums)
-        result = [] 
+        nums_set = set()
+        dupl = mis = 0
 
         for num in nums:
-            if nums.count(num) > 1:
-                result.append(num)
-                nums.remove(num)
-                break
+            if num in nums_set:
+                dupl = num
+            else:
+                nums_set.add(num)
 
-        for i in range(1, n + 1):
-            if i not in nums:
-                result.append(i)
+        for i in range(1, len(nums) + 1):
+            if i not in nums_set:
+                mis = i
                 break
         
-        return result
+        return [dupl, mis]
         
