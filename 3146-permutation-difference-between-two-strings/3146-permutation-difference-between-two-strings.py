@@ -3,6 +3,8 @@ class Solution(object):
         result = 0
 
         for i in range(len(s)):
-            result += abs(i - t.find(s[i]))
+            temp = t.index(s[i])
+            result += abs(i - temp)
 
         return result
+        
