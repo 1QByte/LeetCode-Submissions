@@ -5,7 +5,7 @@ class Solution:
 
         i, j = 0, 1
         while len(nums) != 0:
-            arr.append(nums[i + 1])
+            arr.append(nums[j])
             arr.append(nums[i])
 
             nums = nums[2:]
