@@ -6,7 +6,7 @@ class Solution:
             if arr.count(i) == 1:
                 result.append(i)
 
-        if len(result) > k:
+        if len(result) < k:
             return ""
         else:
             return result[k - 1]
