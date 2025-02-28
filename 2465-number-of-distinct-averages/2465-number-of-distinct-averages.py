@@ -1,21 +1,10 @@
 class Solution:
-    def distinctAverages(self, nums: List[int]) -> int:
+    def distinctAverages(self, nums):
         nums.sort()
-        averages = []
-        avr_dict = []
+        averages = set()
 
-        while len(nums) != 0:
-            temp = (nums[0] + nums[len(nums) - 1]) / 2
+        while nums:
+            avg = (nums.pop(0) + nums.pop()) / 2
+            averages.add(avg)
 
-            averages.append(temp)
-            nums.pop(0)
-            nums.pop()
-
-        for avr in averages:
-            if averages.count(avr) > 1:
-                avr_dict.append(avr)
-
-        if len(avr_dict) == 0:
-            return len(averages)
-        else: 
-            return len(avr_dict)
+        return len(averages)
