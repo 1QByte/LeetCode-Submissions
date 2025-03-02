@@ -5,16 +5,14 @@ class Solution(object):
         for i in range(len(nums)):
             gcd = nums[i]
             for j in range(i, len(nums)):
-                while gcd > 0:
-                    temp = gcd
-                    gcd = nums[j] % gcd
-                    nums[j] = temp
+                a, b = gcd, nums[j]
+                while b:
+                    a, b = b, a % b
+                gcd = a
 
-                if temp == k:
+                if gcd == k:
                     result += 1
-                elif temp < k:
+                elif gcd < k:
                     break
         
         return result
-
-        
